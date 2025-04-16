@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function App() {
   return (
@@ -17,19 +18,29 @@ export default function App() {
       resizeMode='stretch'>
       </ImageBackground>
 
-      <View style={[styles.botoes, {backgroundColor: 'red'}]}>
+      <View style={[styles.botoes, {backgroundColor: '#ffeeac'}]}>
+      <MaterialIcons name="delivery-dining" size={50} color="black" />
+      <Text style={styles.textBotao}>Delivery</Text>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: 'red'}]}>
+      <View style={[styles.botoes, {backgroundColor: '#ffcd7b'}]}>
+      <MaterialIcons name="loyalty" size={50} color="black" />
+      <Text style={styles.textBotao}>Fidelidade</Text>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: 'red'}]}>
+      <View style={[styles.botoes, {backgroundColor: '#925927'}]}>
+      <MaterialIcons name="menu-book" size={50} color="black" />
+      <Text style={styles.textBotao}>Cardápio</Text>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: 'red'}]}>
+      <View style={[styles.botoes, {backgroundColor: '#c02e00'}]}>
+      <MaterialIcons name="assessment" size={50} color="black" />
+      <Text style={styles.textBotao}>Avalie-nos</Text>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: 'red'}]}>
+      <View style={[styles.botoes, {backgroundColor: '#ff8d42'}]}>
+      <MaterialIcons name="sms" size={50} color="black" />
+      <Text style={styles.textBotao}>Contato</Text>
       </View>
 
       <StatusBar style="auto" />
@@ -62,7 +73,7 @@ const styles = StyleSheet.create({
 
   imagem: {
     width: '100%',
-    height: 200,
+    height: 170,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -71,6 +82,16 @@ const styles = StyleSheet.create({
     width: 350,
     height: 100,
     borderRadius: 20,
-    margin: 10
-  }
+    margin: 5,
+    alignItems: 'center',
+    padding: 10,
+    flexDirection: 'row',
+  },
+
+  textBotao: {
+    marginLeft: 10,
+    fontSize: 20,
+    fontWeight: 'bold',
+
+  },
 });
