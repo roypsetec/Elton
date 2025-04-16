@@ -8,39 +8,58 @@ export default function App() {
     <View style={styles.container}>
 
       <View style={styles.logo}>
-      <FontAwesome5 name="pizza-slice" size={20} color="#ffffff" />
-      <Text style={styles.text}>Pizzaria Presunto</Text>
+        <FontAwesome5 name="pizza-slice" size={24} color="#ffffff" />
+        <Text style={styles.text}>Pizzaria Presunto</Text>
       </View>
 
       <ImageBackground
-      source={require('./assets/pizza.jpg')} 
-      style={styles.imagem}
-      resizeMode='stretch'>
+        source={require('./assets/pizza.jpg')}
+        style={styles.imagem}
+        resizeMode='stretch'>
+        <View style={styles.overlay}>
+          <Text style={styles.overlayText}>A felicidade está a algumas fatias de distância!</Text>
+        </View>
       </ImageBackground>
 
-      <View style={[styles.botoes, {backgroundColor: '#ffeeac'}]}>
-      <MaterialIcons name="delivery-dining" size={50} color="black" />
-      <Text style={styles.textBotao}>Delivery</Text>
+      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+        <MaterialIcons name="delivery-dining" size={50} color="black" />
+        <View style={styles.textGroup}>
+          <Text style={styles.textBotao}>Delivery</Text>
+          <Text style={styles.descBotao}>Faça seu pedido</Text>
+        </View>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: '#ffcd7b'}]}>
-      <MaterialIcons name="loyalty" size={50} color="black" />
-      <Text style={styles.textBotao}>Fidelidade</Text>
+      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+        <MaterialIcons name="loyalty" size={50} color="black" />
+        <View style={styles.textGroup}>
+          <Text style={styles.textBotao}>Fidelidade</Text>
+          <Text style={styles.descBotao}>Compre e ganhe</Text>
+        </View>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: '#925927'}]}>
-      <MaterialIcons name="menu-book" size={50} color="black" />
-      <Text style={styles.textBotao}>Cardápio</Text>
+      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+        <MaterialIcons name="menu-book" size={50} color="black" />
+        <View style={styles.textGroup}>
+          <Text style={styles.textBotao}>Cardápio</Text>
+          <Text style={styles.descBotao}>Pizzas, Porções e Bebidas</Text>
+        </View>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: '#c02e00'}]}>
-      <MaterialIcons name="assessment" size={50} color="black" />
-      <Text style={styles.textBotao}>Avalie-nos</Text>
+      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+        <MaterialIcons name="assessment" size={50} color="#black" />
+        <View style={styles.textGroup}>
+          <Text style={styles.textBotao}>Avalie-nos</Text>
+          <Text style={styles.descBotao}>Queremos a sua opnião</Text>
+        </View>
       </View>
 
-      <View style={[styles.botoes, {backgroundColor: '#ff8d42'}]}>
-      <MaterialIcons name="sms" size={50} color="black" />
-      <Text style={styles.textBotao}>Contato</Text>
+
+      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+        <MaterialIcons name="sms" size={50} color="black" />
+        <View style={styles.textGroup}>
+          <Text style={styles.textBotao}>Contato</Text>
+          <Text style={styles.descBotao}>Manda um oi</Text>
+        </View>
       </View>
 
       <StatusBar style="auto" />
@@ -61,13 +80,13 @@ const styles = StyleSheet.create({
     height: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 50,
+    paddingTop: 30,
     backgroundColor: '#9b0000',
   },
 
   text: {
     marginLeft: 10,
-    fontSize: 20,
+    fontSize: 24,
     color: 'white',
   },
 
@@ -76,11 +95,12 @@ const styles = StyleSheet.create({
     height: 170,
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 10,
   },
 
   botoes: {
     width: 350,
-    height: 100,
+    height: 110,
     borderRadius: 20,
     margin: 5,
     alignItems: 'center',
@@ -90,8 +110,36 @@ const styles = StyleSheet.create({
 
   textBotao: {
     marginLeft: 10,
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
 
   },
+
+  descBotao: {
+    fontSize: 16,
+    marginLeft: 10,
+
+  },
+
+  textGroup: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+
+  overlay: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#0000009f', // preto com transparência
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+
+  overlayText: {
+    color: '#fff',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+
+
 });
