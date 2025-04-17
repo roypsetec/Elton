@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -21,56 +21,70 @@ export default function App() {
         </View>
       </ImageBackground>
 
-      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+      <TouchableOpacity
+        style={[styles.botoes, { backgroundColor: '#d86316' }]}
+        onPress={() => alert('Faça seu pedido via Delivery')}>
         <MaterialIcons name="delivery-dining" size={50} color="black" />
         <View style={styles.textGroup}>
           <Text style={styles.textBotao}>Delivery</Text>
           <Text style={styles.descBotao}>Faça seu pedido</Text>
         </View>
-      </View>
+      </TouchableOpacity>
 
-      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+      <TouchableOpacity
+        style={[styles.botoes, { backgroundColor: '#d86316' }]}
+        onPress={() => alert('Seja cliente fidelidade')}
+      >
         <MaterialIcons name="loyalty" size={50} color="black" />
         <View style={styles.textGroup}>
           <Text style={styles.textBotao}>Fidelidade</Text>
           <Text style={styles.descBotao}>Compre e ganhe</Text>
         </View>
-      </View>
+      </TouchableOpacity>
 
-      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+      <TouchableOpacity
+        style={[styles.botoes, { backgroundColor: '#d86316' }]}
+        onPress={() => alert('Acesse o cardápio')}
+      >
         <MaterialIcons name="menu-book" size={50} color="black" />
         <View style={styles.textGroup}>
           <Text style={styles.textBotao}>Cardápio</Text>
           <Text style={styles.descBotao}>Pizzas, Porções e Bebidas</Text>
         </View>
-      </View>
+      </TouchableOpacity>
 
-      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+      <TouchableOpacity
+        style={[styles.botoes, { backgroundColor: '#d86316' }]}
+        onPress={() => alert('Nos avalie com 5 estrelas')}
+      >
         <MaterialIcons name="assessment" size={50} color="#black" />
         <View style={styles.textGroup}>
           <Text style={styles.textBotao}>Avalie-nos</Text>
           <Text style={styles.descBotao}>Queremos a sua opnião</Text>
         </View>
-      </View>
+      </TouchableOpacity>
 
 
-      <View style={[styles.botoes, { backgroundColor: '#d86316' }]}>
+      <TouchableOpacity
+        style={[styles.botoes, { backgroundColor: '#d86316' }]}
+        onPress={() => alert('(17) 99628-1718')}
+      >
         <MaterialIcons name="sms" size={50} color="black" />
         <View style={styles.textGroup}>
           <Text style={styles.textBotao}>Contato</Text>
           <Text style={styles.descBotao}>Manda um oi</Text>
         </View>
-      </View>
+      </TouchableOpacity>
 
       <StatusBar style="auto" />
-    </View>
+    </View >
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff00',
+    backgroundColor: '#ffffffff',
     alignItems: 'center',
   },
 
@@ -100,9 +114,9 @@ const styles = StyleSheet.create({
 
   botoes: {
     width: 350,
-    height: 110,
+    height: 100,
     borderRadius: 20,
-    margin: 5,
+    margin: 8,
     alignItems: 'center',
     padding: 10,
     flexDirection: 'row',
