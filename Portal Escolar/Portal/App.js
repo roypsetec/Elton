@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -13,38 +13,37 @@ export default function App() {
       <View style={styles.navBar}>
 
         <TouchableOpacity>
-        <MaterialIcons name="menu" size={32} color="black" />
+          <MaterialIcons name="menu" size={32} color="black" />
         </TouchableOpacity>
 
         <Text style={styles.textNav}>Área de Trabalho</Text>
 
         <TouchableOpacity>
-        <Image source={require('./assets/LogoPerfil.png')} style={styles.logoPerfil}
-        resizeMode='center'></Image>
+          <Image source={require('./assets/LogoPerfil.png')} style={styles.logoPerfil}
+            resizeMode='center'></Image>
         </TouchableOpacity>
 
       </View>
 
-      <ImageBackground source={require('./assets/LogoEscola.png')} 
-      style={styles.imagemEscola} 
-      resizeMode='stretch'
+      <ImageBackground source={require('./assets/LogoEscola.png')}
+        style={styles.imagemEscola}
       />
-      
+
       <View style={styles.botoesEscola}>
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#85008a',}]}>
-      <FontAwesome5 name="blog" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Blog</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#008a83', }]}>
+          <FontAwesome5 name="blog" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Blog</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#e6ac00',}]}>
-      <Ionicons name="notifications" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Notificações</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#e6ac00', }]}>
+          <Ionicons name="notifications" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Notificações</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#8e3dc3',}]}>
-      <FontAwesome5 name="clock" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Notificações</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#8e3dc3', }]}>
+          <FontAwesome5 name="clock" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Notificações</Text>
+        </TouchableOpacity>
       </View>
 
 
@@ -52,20 +51,20 @@ export default function App() {
 
 
       <View style={styles.botoesEscola}>
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#cb3d42',}]}>
-      <FontAwesome6 name="map-location-dot" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Localização</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#cb3d42', }]}>
+          <FontAwesome6 name="map-location-dot" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Localização</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#007dc3',}]}>
-      <MaterialIcons name="chat" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Mural</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#007dc3', }]}>
+          <MaterialIcons name="chat" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Mural</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#149959',}]}>
-      <FontAwesome6 name="list-check" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Comparecimento</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#149959', }]}>
+          <FontAwesome6 name="list-check" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Comparecimento</Text>
+        </TouchableOpacity>
       </View>
 
 
@@ -73,23 +72,23 @@ export default function App() {
 
 
       <View style={styles.botoesEscola}>
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#c9bf00',}]}>
-      <Entypo name="info-with-circle" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Informações</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#c9bf00', }]}>
+          <Entypo name="info-with-circle" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Informações</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#00b714',}]}>
-      <MaterialIcons name="contacts" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Contatos</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#00b714', }]}>
+          <MaterialIcons name="contacts" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Contatos</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.botoes, {backgroundColor: '#f04646',}]}>
-      <Ionicons name="newspaper" size={32} color="#ffffff" />
-      <Text style={styles.textBotao}>Notícias e Eventos</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={[styles.botoes, { backgroundColor: '#f04646', }]}>
+          <Ionicons name="newspaper" size={32} color="#ffffff" />
+          <Text style={styles.textBotao}>Notícias e Eventos</Text>
+        </TouchableOpacity>
       </View>
 
-      <Text style={styles.textAviso}>© Instituto Educacional Cristo Redentor</Text>
+      <Text style={styles.textAviso}>© EduPortal</Text>
 
       <StatusBar style="auto" />
     </View>
@@ -99,13 +98,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3b7d89',
+    backgroundColor: '#293370',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   navBar: {
-    backgroundColor: '#707070',
+    backgroundColor: '#fff',
     width: '100%',
     height: 100,
     justifyContent: 'space-between',
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
 
   imagemEscola: {
     width: '100%',
-    height: 300,
+    height: 280,
 
   },
 
@@ -139,7 +138,6 @@ const styles = StyleSheet.create({
     height: 150,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'flex',
   },
 
   botoesEscola: {
@@ -155,7 +153,6 @@ const styles = StyleSheet.create({
   textAviso: {
     fontSize: 14,
     color: '#ffffff',
-    marginTop: 10,
-    marginBottom: 10,
+    padding: 10,
   },
 });
