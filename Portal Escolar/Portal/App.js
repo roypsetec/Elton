@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, VirtualizedList } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -26,8 +26,11 @@ export default function App() {
       </View>
 
       <ImageBackground source={require('./assets/LogoEscola.png')}
-        style={styles.imagemEscola}
-      />
+        style={styles.imagemEscola}>
+          <View style={styles.ViewTextImagem}>
+          <Text style={styles.TextImagem}>Academia da Polícia Militar do Barro Branco</Text>
+          </View>
+      </ImageBackground>
 
       <View style={styles.botoesEscola}>
         <TouchableOpacity style={[styles.botoes, { backgroundColor: '#008a83', }]}>
@@ -46,10 +49,6 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-
-
-
-
       <View style={styles.botoesEscola}>
         <TouchableOpacity style={[styles.botoes, { backgroundColor: '#cb3d42', }]}>
           <FontAwesome6 name="map-location-dot" size={32} color="#ffffff" />
@@ -66,10 +65,6 @@ export default function App() {
           <Text style={styles.textBotao}>Comparecimento</Text>
         </TouchableOpacity>
       </View>
-
-
-
-
 
       <View style={styles.botoesEscola}>
         <TouchableOpacity style={[styles.botoes, { backgroundColor: '#c9bf00', }]}>
@@ -88,7 +83,7 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.textAviso}>© EduPortal</Text>
+      <Text style={styles.textAviso}>© APMBB</Text>
 
       <StatusBar style="auto" />
     </View>
@@ -130,6 +125,7 @@ const styles = StyleSheet.create({
   imagemEscola: {
     width: '100%',
     height: 280,
+    justifyContent: 'flex-end',
 
   },
 
@@ -155,4 +151,16 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     padding: 10,
   },
+
+  ViewTextImagem: {
+    padding: 10,
+    alignItems: 'center',
+  },
+
+  TextImagem: {
+    color: 'white',
+    fontSize: 15,
+    
+  },
+
 });
