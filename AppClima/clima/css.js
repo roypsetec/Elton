@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   hoje: {
     padding: 20,
-    paddingTop: 40,
+    paddingTop: 20,
   },
   textAgora: {
     color: 'white',
@@ -72,6 +72,50 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
 
+  },
+  climaVertical: {
+    width: '100%',
+    height: 290,
+    backgroundColor: '#00000046',
+    borderRadius: 15,
+    marginTop: 20,
+  },
+  dia: {
+    flexDirection: 'row',
+  },
+  nomeDia: {
+    color: 'white',
+    fontSize: 15,
+    marginLeft: 15,
+    marginTop: 10,
+  },
+  iconeVertical: {
+    width: 35,
+    height: 35,
+    marginTop: 5,
+  },
+  informacoes: {
+    flexDirection: 'row',
+    paddingTop: 20,
+    justifyContent: 'space-between'
+
+  },
+  infoClima: {
+    width: 180,
+    height: 160,
+    backgroundColor: '#00000046',
+    borderRadius: 20,
+  },
+  textInfo: {
+    padding: 15,
+    color: 'white',
+    fontSize: 16,
+  },
+  numeroInfo: {
+    color: 'white',
+    marginLeft: 20,
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 
 });

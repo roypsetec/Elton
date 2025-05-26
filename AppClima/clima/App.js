@@ -9,7 +9,7 @@ export default function App() {
 
     <ImageBackground source={require('./assets/fundo.jpg')} style={styles.fundo}>
 
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
 
         <View style={styles.navbar}>
           <Ionicons name="menu" size={32} color="white" />
@@ -19,7 +19,7 @@ export default function App() {
         <View style={styles.hoje}>
           <Text style={styles.textAgora}>Agora</Text>
           <View style={styles.clima}>
-            <Text style={{ color: 'white', fontSize: 60, paddingTop: 10, }}>33°</Text>
+            <Text style={{ color: 'white', fontSize: 60, }}>33°</Text>
             <Image source={require('./assets/sol.png')} style={styles.sol} />
           </View>
           <Text style={{ color: 'white', fontSize: 15, paddingTop: 10, }}>Máxima: 34º / Mínima: 17º</Text>
@@ -185,11 +185,72 @@ export default function App() {
               <Text style={styles.textClima}>13:00</Text>
             </View>
           </ScrollView>
-          
+
+          <Text style={[styles.textAgora, { paddingTop: 20 }]}>Previsão do tempo para 7 dia(s)</Text>
+
+          <View style={styles.climaVertical}>
+            <View style={styles.dia}>
+              <Text style={styles.nomeDia}>Hoje</Text>
+              <Image source={require('./assets/sol.png')} style={[styles.iconeVertical, { marginLeft: 150 }]} />
+              <Text style={[styles.nomeDia, { marginLeft: 70 }]}>34º / 17º</Text>
+            </View>
+
+            <View style={styles.dia}>
+              <Text style={styles.nomeDia}>Terça-Feira</Text>
+              <Image source={require('./assets/sol.png')} style={[styles.iconeVertical, { marginLeft: 106 }]} />
+              <Text style={[styles.nomeDia, { marginLeft: 70 }]}>35º / 17º</Text>
+            </View>
+
+            <View style={styles.dia}>
+              <Text style={styles.nomeDia}>Quarta-Feira</Text>
+              <Image source={require('./assets/nublado.png')} style={[styles.iconeVertical, { marginLeft: 100 }]} />
+              <Text style={[styles.nomeDia, { marginLeft: 70 }]}>29º / 20º</Text>
+            </View>
+
+            <View style={styles.dia}>
+              <Text style={styles.nomeDia}>Quinta-Feira</Text>
+              <Image source={require('./assets/chuva.png')} style={[styles.iconeVertical, { marginLeft: 102 }]} />
+              <Text style={[styles.nomeDia, { marginLeft: 70 }]}>24º / 17º</Text>
+            </View>
+
+            <View style={styles.dia}>
+              <Text style={styles.nomeDia}>Sexta-Feira</Text>
+              <Image source={require('./assets/chuva.png')} style={[styles.iconeVertical, { marginLeft: 106 }]} />
+              <Text style={[styles.nomeDia, { marginLeft: 70 }]}>23º / 17º</Text>
+            </View>
+
+            <View style={styles.dia}>
+              <Text style={styles.nomeDia}>Sabádo</Text>
+              <Image source={require('./assets/nublado.png')} style={[styles.iconeVertical, { marginLeft: 130 }]} />
+              <Text style={[styles.nomeDia, { marginLeft: 70 }]}>28º / 21º</Text>
+            </View>
+
+            <View style={styles.dia}>
+              <Text style={styles.nomeDia}>Domingo</Text>
+              <Image source={require('./assets/sol.png')} style={[styles.iconeVertical, { marginLeft: 122 }]} />
+              <Text style={[styles.nomeDia, { marginLeft: 70 }]}>30º / 25º</Text>
+            </View>
+          </View>
+
+
+          <View style={styles.informacoes}>
+            <View style={styles.infoClima}>
+              <Text style={styles.textInfo}>Vento</Text>
+              <Text style={styles.numeroInfo}>8 km/h</Text>
+              <Text style={styles.textInfo}>Leve • Do leste</Text>
+            </View>
+
+            <View style={styles.infoClima}>
+            <Text style={styles.textInfo}>Umidade</Text>
+              <Text style={styles.numeroInfo}>19%</Text>
+              <Text style={styles.textInfo}>Ponto de condensação 3%</Text>
+            </View>
+          </View>
+
         </View>
 
         <StatusBar style="auto" />
-      </View>
+      </ScrollView>
     </ImageBackground>
   );
 }
