@@ -1,0 +1,19 @@
+{
+  "play": "Jogar",
+  "characters": "Personagens",
+  "settings": "Configurações",
+  "back": "Voltar",
+  "chooseStadium": "Escolha o Estádio",
+  "choosePlayer": "Escolha seu Jogador",
+  "stadiumMirassol": "Mirassol - Maião",
+  "stadiumCorinthians": "Corinthians - Neo Química",
+  "stadiumBayern": "Bayern - Allianz Arena",
+  "playerDepay": "Memphis Depay",
+  "playerRomero": "Ángel Romero",
+  "playerYuri": "Yuri Alberto",
+  "selectionAlertTitle": "Seleção",
+  "selectionAlertMessage": "Você selecionou esse jogador! Volte ao Menu e comece a jogar.",
+  "selectLanguage": "Selecione o Idioma",
+  "sound": "Som",
+  "difficulty": "Dificuldade"
+}
