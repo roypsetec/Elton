@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet, Text, View, Button, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, View, Button, Image, Dimensions, Switch, TouchableOpacity, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useFonts } from 'expo-font';
+// Removidos imports não utilizados: StatusBar, TouchableOpacity, useFonts
 
 const Stack = createStackNavigator();
 
@@ -10,216 +10,248 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="MenuPrincipal" screenOptions={{ headerShown: false }}>
-
         <Stack.Screen name="MenuPrincipal" component={MenuPrincipal} />
         <Stack.Screen name="SelecaoNivel" component={SelecaoNivel} />
         <Stack.Screen name="Personagens" component={Personagens} />
         <Stack.Screen name="Configuracoes" component={Configuracoes} />
-
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
+// ------------------------------------------
+// 1. TELA: MENU PRINCIPAL
+// ------------------------------------------
 function MenuPrincipal({ navigation }) {
-  // Apenas layout e botões de navegação
   return (
-    <View style={styles.mainMenuContainer}>
+    <View style={styles.telaMenu}>
       <Text style={styles.logoText}>ADVENTURE LAND 2</Text>
       <Text style={styles.logoSubText}>DELUXE EDITION</Text>
-
       <View style={styles.buttonGroup}>
-        <Button
-          title="Jogar"
-          color="#007bff"
-          onPress={() => navigation.navigate('SelecaoNivel')} // Navega para a tela SelecaoNivel
-        />
+        <Button title="Jogar" color="#007bff" onPress={() => navigation.navigate('SelecaoNivel')} />
         <View style={{ marginVertical: 10 }} />
-        <Button
-          title="Personagens"
-          color="#007bff"
-          onPress={() => navigation.navigate('Personagens')} // Navega para a tela Personagens
-        />
+        <Button title="Personagens" color="#007bff" onPress={() => navigation.navigate('Personagens')} />
         <View style={{ marginVertical: 10 }} />
-        <Button
-          title="Configurações"
-          color="#007bff"
-          onPress={() => navigation.navigate('Configuracoes')} // Navega para a tela Configuracoes
-        />
+        <Button title="Configurações" color="#007bff" onPress={() => navigation.navigate('Configuracoes')} />
       </View>
     </View>
   );
 }
 
-function SelecaoNivel({ setScreen }) {
+// ------------------------------------------
+// 2. TELA: SELEÇÃO DE NÍVEL (Corrigido o Voltar)
+// ------------------------------------------
+function SelecaoNivel({ navigation }) { // Recebe navigation
   return (
-    <ScrollView style={styles.levelScreen}>
-      <Text style={styles.headerTitle}>Escolha o Nível</Text>
+    <View style={styles.levelScreen}>
 
-      {/* Nível 1 - Floresta */}
+      <Text style={styles.tituloTela}>Escolha o Estadio</Text>
+
       <View style={styles.levelCard}>
-        <View style={styles.levelImagePlaceholder}><Text>Imagem Floresta</Text></View>
-        <Text style={styles.levelText}>Nível 1 - Floresta</Text>
+        <Image source={require('./assets/niveis/mirassol.png')} style={styles.levelImage} />
+        <Text style={styles.levelText}>Mirassol - Maião</Text>
       </View>
 
-      {/* Nível 2 - Praia */}
       <View style={styles.levelCard}>
-        <View style={styles.levelImagePlaceholder}><Text>Imagem Praia</Text></View>
-        <Text style={styles.levelText}>Nível 2 - Praia</Text>
+        <Image source={require('./assets/niveis/corinthians.png')} style={styles.levelImage} />
+        <Text style={styles.levelText}>Corinthians - Neo Química</Text>
       </View>
 
-      {/* Nível 3 - Deserto */}
       <View style={styles.levelCard}>
-        <View style={styles.levelImagePlaceholder}><Text>Imagem Deserto</Text></View>
-        <Text style={styles.levelText}>Nível 3 - Deserto</Text>
+        <Image source={require('./assets/niveis/bayern.png')} style={styles.levelImage} />
+        <Text style={styles.levelText}>Bayern - Allianz Arena</Text>
       </View>
 
-      {/* Botão Voltar: Simplesmente volta para o MenuPrincipal */}
-      <View style={{ margin: 20 }}>
-        <Button
-          title="Voltar"
-          color="#6c757d"
-          onPress={() => setScreen('MenuPrincipal')}
-        />
+      <View style={styles.botaoVoltar}>
+        <Button title="Voltar" color="#6c757d" onPress={() => navigation.goBack()} />
       </View>
-    </ScrollView>
+
+    </View>
   );
 }
 
+// ------------------------------------------
+// 3. TELA: PERSONAGENS (COM SCROLLVIEW PARA VISUALIZAÇÃO)
+// ------------------------------------------
 function Personagens({ navigation }) {
   return (
     <View style={styles.telaPersonagem}>
-      <Text style={styles.tituloPersonagem}>Escolha seu Personagem</Text>
+      <Text style={styles.tituloTela}>Escolha seu Jogador</Text>
 
-      <ScrollView horizontal style={styles.personagens}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.personagensScrollView} >
 
-        <View style={styles.opcoes}>
-          <Image source={require('./assets/personagens/barbosa.png')} style={styles.imgPersonagem} />
-          <Text style={styles.txtPersonagem}>Barbosa Palmeirense</Text>
+        <View style={styles.opções}>
+          <TouchableOpacity onPress={() => Alert.alert("Seleção", 'Você selecionou Memphis Depay! Volte ao Menu e comece a jogar.',)}>
+            <Image source={require('./assets/personagens/memphis.png')} style={styles.imgPersonagem} />
+          </TouchableOpacity>
+          <Text style={styles.txtPersonagem}>Memphis Depay</Text>
         </View>
 
-        <View style={styles.opcoes}>
-          <Image source={require('./assets/personagens/guilherme2.png')} style={styles.imgPersonagem} />
-          <Text style={styles.txtPersonagem}>Guilherme Corinthiano</Text>
+        <View style={styles.opções}>
+          <TouchableOpacity onPress={() => Alert.alert("Seleção", 'Você selecionou Ángel Romero! Volte ao Menu e comece a jogar.',)}>
+            <Image source={require('./assets/personagens/romero.png')} style={styles.imgPersonagem} />
+          </TouchableOpacity>
+          <Text style={styles.txtPersonagem}>Ángel Romero</Text>
         </View>
 
+        <View style={styles.opções}>
+          <TouchableOpacity onPress={() => Alert.alert("Seleção", 'Você selecionou Yuri Alberto! Volte ao Menu e comece a jogar.',)}>
+            <Image source={require('./assets/personagens/yuri.png')} style={styles.imgPersonagem} />
+          </TouchableOpacity>
+          <Text style={styles.txtPersonagem}>Yuri Alberto</Text>
+        </View>
       </ScrollView>
 
-      <Button title="Voltar para o Menu" color="#6c757d" onPress={() => navigation.goBack()} />
-    </View >
+      <View style={styles.botaoVoltar}>
+        <Button title="Voltar" color="#6c757d" onPress={() => navigation.goBack()} />
+      </View>
+    </View>
   );
 }
 
+// ------------------------------------------
+// 4. TELA: CONFIGURAÇÕES (Com Funcionalidade Mínima)
+// ------------------------------------------
 function Configuracoes({ navigation }) {
-  return (
-    <View style={styles.home}>
+  // Funcionalidade Mínima: Usa useState
+  const [isSoundOn, setIsSoundOn] = useState(true);
+  const toggleSound = () => setIsSoundOn(previousState => !previousState);
 
+  return (
+    <View style={styles.screenContainer}>
+      <Text style={styles.tituloTela}>Configurações</Text>
+
+      <View style={styles.configOption}>
+        <Text style={styles.configText}>Som: {isSoundOn ? 'Ligado' : 'Desligado'}</Text>
+        <Switch onValueChange={toggleSound} value={isSoundOn} />
+      </View>
+
+      <View style={styles.configOption}>
+        <Text style={styles.configText}>Dificuldade: Médio</Text>
+      </View>
+      <View style={styles.configOption}>
+        <Text style={styles.configText}>Idioma: Português</Text>
+      </View>
+
+      <View style={{ marginTop: 30 }}>
+        <Button title="Voltar" color="#6c757d" onPress={() => navigation.goBack()} />
+      </View>
     </View>
-  )
+  );
 }
 
+// ------------------------------------------
+// ESTILOS (Styles) - Ajustados
+// ------------------------------------------
 const styles = StyleSheet.create({
-  // Estilos Gerais de Container
-  telaPersonagem: {
-    flex: 1,
-    backgroundColor: '#3d7ebe',
-    alignItems: 'center',
-  },
-  tituloPersonagem: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#343a40',
-    marginBottom: 70,
-    marginTop: 50,
-  },
+//style geral
+  tituloTela: { fontSize: 28, fontWeight: 'bold', color: '#343a40', marginBottom: 30, textAlign: 'center' },
+  botaoVoltar: { marginTop: 40, width: '60%' },
 
-  // Estilos do Menu Principal
-  mainMenuContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00bfff',
-  },
-  logoPlaceholder: {
-    marginBottom: 50,
-    padding: 20,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    borderRadius: 10,
-  },
-  logoText: {
-    fontSize: 32,
-    fontWeight: '900',
-    color: 'yellow',
-    textShadowColor: 'black',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 3,
-  },
-  logoSubText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'white',
-    textAlign: 'center',
-  },
-  buttonGroup: {
-    width: '80%',
-  },
 
-  // Estilos de Seleção de Nível
+
+
+
+
+ //style menu
+  telaMenu: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#00bfff', },
+  logoText: { fontSize: 32, fontWeight: '900', color: 'yellow', marginBottom: 5, textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 3, },
+  logoSubText: { fontSize: 18, fontWeight: 'bold', color: 'white', textAlign: 'center', marginBottom: 50, },
+  buttonGroup: { width: '70%', },
+
+
+
+
+
+
+  //style nivel
   levelScreen: {
     flex: 1,
-    backgroundColor: '#e9ecef',
-    paddingHorizontal: 20,
+    backgroundColor: '#82c08c',
+    alignItems: 'center',
     paddingTop: 50,
   },
+
   levelCard: {
-    backgroundColor: '#ffffff',
-    borderRadius: 10,
-    marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    width: '90%',
     elevation: 5,
-  },
-  levelImagePlaceholder: {
-    height: 150,
-    backgroundColor: '#adb5bd',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  levelText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    padding: 15,
-    textAlign: 'center',
-    color: '#343a40',
+    marginVertical: 10,
+    backgroundColor: '#e4e4e4',
+    borderRadius: 12,
   },
 
-  // Estilos de Personagens
-  personagens: {
-    height: 500
+  levelImage: {
+    width: '100%',
+    height: 140,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+  },
+
+  levelText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    padding: 10,
+    textAlign: 'center',
+    color: '#343a40'
+  },
+
+
+
+
+
+  //style personagem
+  telaPersonagem: {
+    flex: 1,
+    backgroundColor: '#82c08c',
+    alignItems: 'center',
+    paddingTop: 50,
+  },
+
+  personagensScrollView: {
+    flexGrow: 0,
+    height: '50%',
+    marginVertical: 100
+  },
+
+  opções: {
+    marginHorizontal: 40,
+  },
+
+  imgPersonagem: {
+    width: 200,
+    height: 300,
   },
 
   txtPersonagem: {
     fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
     backgroundColor: '#000000ce',
     color: 'white',
     borderRadius: 4,
+    textAlign: 'center',
+    paddingHorizontal: 10,
+  },
 
+
+
+
+
+  //style configuracao
+  configOption: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 15,
+    marginVertical: 8,
+    backgroundColor: '#495057',
+    borderRadius: 8,
   },
-  seta: {
-    width: 100,
-    height: 100,
-    marginTop: 70,
-  },
-  imgPersonagem: {
-    width: 200,
-    height: 350,
-  },
-  opcoes: {
-    marginHorizontal: 50
+
+  configText: {
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: '600',
   },
 
 });
