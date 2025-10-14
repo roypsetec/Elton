@@ -15,5 +15,9 @@
   "selectionAlertMessage": "You have selected this player! Go back to the Menu and start playing.",
   "selectLanguage": "Select your Language",
    "sound": "Sound",
-  "difficulty": "Difficulty"
+  "difficulty": "Difficulty",
+  "score": "SCORE",
+  "goal": "GOAL!",
+  "save": "SAVED!",
+  "exitMatch": "Exit Match"
 }

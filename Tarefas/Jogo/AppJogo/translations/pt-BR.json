@@ -15,5 +15,9 @@
   "selectionAlertMessage": "Você selecionou esse jogador! Volte ao Menu e comece a jogar.",
   "selectLanguage": "Selecione o Idioma",
   "sound": "Som",
-  "difficulty": "Dificuldade"
+  "difficulty": "Dificuldade",
+  "score": "PLACAR",
+  "goal": "GOL!",
+  "save": "DEFENDEU!",
+  "exitMatch": "Sair da Partida"
 }
