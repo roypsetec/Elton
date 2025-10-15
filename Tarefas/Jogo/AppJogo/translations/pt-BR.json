@@ -4,11 +4,6 @@
   "settings": "Configurações",
   "back": "Voltar",
   "choosePlayer": "Escolha seu Jogador",
-  "playerDepay": "Memphis Depay",
-  "playerRomero": "Ángel Romero",
-  "playerYuri": "Yuri Alberto",
-  "selectionAlertTitle": "Seleção",
-  "selectionAlertMessage": "Você selecionou %{playerName}! Volte ao Menu e comece a jogar.",
   "score": "PLACAR",
   "goal": "GOL!",
   "save": "DEFENDEU!",
@@ -29,6 +24,10 @@
   "gameOver": "FIM DE JOGO",
   "finalScore": "Pontuação Final: %{score}",
   "playAgain": "Jogar Novamente",
-  "backToMenu": "Voltar ao Menu"
+  "backToMenu": "Voltar ao Menu",
+  "playerRonaldo": "Cristiano Ronaldo",
+  "playerMessi": "Lionel Messi",
+  "playerNeymar": "Neymar Jr.",
+  "resumeGame": "Continuar Jogo"
 }
 

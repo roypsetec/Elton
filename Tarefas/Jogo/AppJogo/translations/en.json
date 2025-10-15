@@ -4,11 +4,6 @@
   "settings": "Settings",
   "back": "Back",
   "choosePlayer": "Choose your Player",
-  "playerDepay": "Memphis Depay",
-  "playerRomero": "Ángel Romero",
-  "playerYuri": "Yuri Alberto",
-  "selectionAlertTitle": "Selection",
-  "selectionAlertMessage": "You have selected %{playerName}! Go back to the Menu and start playing.",
   "score": "SCORE",
   "goal": "GOAL!",
   "save": "SAVED!",
@@ -29,6 +24,10 @@
   "gameOver": "GAME OVER",
   "finalScore": "Final Score: %{score}",
   "playAgain": "Play Again",
-  "backToMenu": "Back to Menu"
+  "backToMenu": "Back to Menu",
+  "playerRonaldo": "Cristiano Ronaldo",
+  "playerMessi": "Lionel Messi",
+  "playerNeymar": "Neymar Jr.",
+  "resumeGame": "Resume Game"
 }
 
