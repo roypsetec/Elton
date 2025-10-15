@@ -1,40 +1,38 @@
 import React, { useState, useRef } from 'react';
-import { ScrollView, StyleSheet, Text, View, Button, Image, TouchableOpacity, Alert, Switch, ImageBackground, Animated } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Button, Image, TouchableOpacity, Switch, ImageBackground, Animated } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { I18n } from 'i18n-js';
 import en from './translations/en.json';
 import ptBR from './translations/pt-BR.json';
 
-// Configuração do i18n
 const i18n = new I18n({ en, 'pt-BR': ptBR });
 i18n.defaultLocale = 'pt-BR';
 i18n.enableFallback = true;
 
 const Stack = createStackNavigator();
 
-// --- NOSSO "BANCO DE DADOS" DE JOGADORES (ATUALIZADO) ---
 const PLAYERS = {
   ronaldo: {
     id: 'ronaldo',
     nameKey: 'playerRonaldo',
     selectionImage: require('./assets/personagens/ronaldo.png'),
     kickerImage: require('./assets/game/ronaldo_kicker.png'),
-    kickPosition: 'left', // Destro
+    kickPosition: 'left',
   },
   messi: {
     id: 'messi',
     nameKey: 'playerMessi',
     selectionImage: require('./assets/personagens/messi.png'),
     kickerImage: require('./assets/game/messi_kicker.png'),
-    kickPosition: 'right', // Canhoto
+    kickPosition: 'right',
   },
   neymar: {
     id: 'neymar',
     nameKey: 'playerNeymar',
     selectionImage: require('./assets/personagens/neymar.png'),
     kickerImage: require('./assets/game/neymar_kicker.png'),
-    kickPosition: 'left', // Destro
+    kickPosition: 'left',
   },
 };
 
@@ -55,15 +53,12 @@ export default function App() {
   );
 }
 
-// ------------------------------------------
-// 1. TELA: MENU PRINCIPAL
-// ------------------------------------------
 function MenuPrincipal({ navigation }) {
   return (
     <ImageBackground source={require('./assets/fundo.png')} style={styles.telaMenu}>
       <Image source={require('./assets/logo.png')} style={{ width: 150, height: 150, marginBottom: 10 }} />
-      <Text style={styles.logoText}>FUTEBOL MANIA</Text>
-      <Text style={styles.logoSubText}>BRASIL EDITION</Text>
+      <Text style={styles.logoText}>FUTE PENALTY MANIA</Text>
+      <Text style={styles.logoSubText}>WORLD EDITION</Text>
       <View style={styles.buttonGroup}>
         <Button title={i18n.t('play')} color="#007bff" onPress={() => navigation.navigate('Personagens')} />
         <View style={{ marginVertical: 10 }} />
@@ -73,9 +68,6 @@ function MenuPrincipal({ navigation }) {
   );
 }
 
-// ------------------------------------------
-// 2. TELA: PERSONAGENS (FUNDO ATUALIZADO)
-// ------------------------------------------
 function Personagens({ navigation }) {
   const selectPlayerAndGo = (playerId) => {
     navigation.navigate('SelecaoModo', { playerId: playerId });
@@ -101,9 +93,6 @@ function Personagens({ navigation }) {
   );
 }
 
-// ------------------------------------------
-// 3. TELA: SELEÇÃO DE MODO DE JOGO (FUNDO ATUALIZADO)
-// ------------------------------------------
 function SelecaoModo({ route, navigation }) {
   const { playerId } = route.params;
 
@@ -146,10 +135,6 @@ function SelecaoModo({ route, navigation }) {
   );
 }
 
-
-// ------------------------------------------
-// 4. TELA: JOGO DE PÊNALTIS
-// ------------------------------------------
 function TelaPenalti({ route, navigation, isDifficultyHard }) {
   const { playerId, mode } = route.params;
   const [playerScore, setPlayerScore] = useState(0);
@@ -308,9 +293,6 @@ function TelaPenalti({ route, navigation, isDifficultyHard }) {
   );
 }
 
-// ------------------------------------------
-// 5. TELA: CONFIGURAÇÕES (FUNDO ATUALIZADO)
-// ------------------------------------------
 function Configuracoes({ navigation, setLocale, isDifficultyHard, setIsDifficultyHard }) {
   const [isSoundEnabled, setIsSoundEnabled] = useState(true);
 
@@ -342,9 +324,6 @@ function Configuracoes({ navigation, setLocale, isDifficultyHard, setIsDifficult
   )
 }
 
-// ------------------------------------------
-// ESTILOS
-// ------------------------------------------
 const styles = StyleSheet.create({
   tituloTela: { fontSize: 28, fontWeight: 'bold', color: 'white', marginBottom: 30, textAlign: 'center', textShadowColor: 'black', textShadowOffset: { width: 1, height: 1 }, textShadowRadius: 2 },
   botaoVoltarFixo: { position: 'absolute', bottom: 40, width: '80%', alignSelf: 'center' },
@@ -378,8 +357,8 @@ const styles = StyleSheet.create({
   goalkeeper: { width: '30%', height: '70%', resizeMode: 'contain', position: 'absolute', bottom: '10%' },
   resultMessage: { position: 'absolute', top: '45%', alignSelf: 'center', fontSize: 50, fontWeight: 'bold', color: 'yellow', textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 3, },
   kickingArea: { position: 'absolute', bottom: 10, width: '100%', height: 270, },
-  kickerImage: { width: 150, height: 250, resizeMode: 'contain', },
-  ballImage: { width: 40, height: 40, position: 'absolute', bottom: 20, marginLeft: 185, marginTop: 135 },
+  kickerImage: { width: 150, height: 250, resizeMode: 'contain', position: 'absolute' },
+  ballImage: { width: 40, height: 40, position: 'absolute', bottom: 20, marginLeft: 185, marginTop: 135},
   gameOverOverlay: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.7)', justifyContent: 'center', alignItems: 'center' },
   gameOverText: { fontSize: 40, fontWeight: 'bold', color: 'white', marginBottom: 30, textAlign: 'center' },
   gameOverButtons: { width: '60%' },
